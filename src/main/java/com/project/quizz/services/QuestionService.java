@@ -29,6 +29,14 @@ QuestionDao questionDao;
     public String addQuestion(Question question) {
 
         questionDao.save(question);
-        return "Success";
+        return "The question has been posted successfully !";
     }
+
+/*    public String deleteCategory(Integer categoryId) {
+
+        questionDao.findById(categoryId).ifPresent(questionDao.delete());
+        return "The question has been successfully deleted !";
+
+
+    }*/
 }

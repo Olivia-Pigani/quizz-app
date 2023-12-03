@@ -21,15 +21,20 @@ public class QuestionController {
     }
 
     @GetMapping("category/{category}")
-    public List<Question> findQuestionsByCategory(@PathVariable("category") String category){
-    return questionService.findQuestionsByCategory(category);
+    public List<Question> findQuestionsByCategory(@PathVariable("category") String category) {
+        return questionService.findQuestionsByCategory(category);
     }
 
     @PostMapping("add")
-    public String addQuestion (@RequestBody Question question){
+    public String addQuestion(@RequestBody Question question) {
 
         return questionService.addQuestion(question);
     }
 
 
+  @DeleteMapping("delete/{categoryId}")
+    public String deleteCategory(@PathVariable("categoryId") Integer categoryId){
+        return questionService.deleteCategory(categoryId);
+
+    }
 }
