@@ -40,6 +40,15 @@ public class QuestionController {
         return questionService.addQuestion(question);
     }
 
+
+    // UPDATE
+    @PutMapping("update/{questionId}")
+    public String updateAQuestion(@PathVariable("questionId") Integer questionId, @RequestBody Question updatedQuestion){
+        return questionService.updateAQuestion(questionId,updatedQuestion);
+    }
+
+
+
     //DELETE
     @DeleteMapping("delete/{categoryId}")
     public String deleteCategory(@PathVariable("categoryId") Integer categoryId) {

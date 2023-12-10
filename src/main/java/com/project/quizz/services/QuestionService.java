@@ -13,7 +13,8 @@ import java.util.Optional;
 public class QuestionService {
 
     @Autowired
-QuestionDao questionDao;
+    QuestionDao questionDao;
+
     public List<Question> getAllQUestions() {
         return questionDao.findAll();
     }
@@ -43,6 +44,31 @@ QuestionDao questionDao;
     public Optional<Question> findQuestionById(Integer questionId) {
 
         return questionDao.findById(questionId);
+
+    }
+
+    public String updateAQuestion(Integer questionId, Question updatedQuestion) {
+
+        Optional<Question> questionToUpdate = findQuestionById(questionId);
+
+        if (questionToUpdate.isPresent()) {
+            Question existingQuestionToUpdate = questionToUpdate.get();
+            existingQuestionToUpdate.setQuestionTitle(updatedQuestion.getQuestionTitle());
+            existingQuestionToUpdate.setOption1(updatedQuestion.getOption1());
+            existingQuestionToUpdate.setOption2(updatedQuestion.getOption2());
+            existingQuestionToUpdate.setOption3(updatedQuestion.getOption3());
+            existingQuestionToUpdate.setOption4(updatedQuestion.getOption4());
+            existingQuestionToUpdate.setRightAnswer(updatedQuestion.getRightAnswer());
+            existingQuestionToUpdate.setDifficultyLevel(updatedQuestion.getDifficultyLevel());
+            existingQuestionToUpdate.setCategory(updatedQuestion.getCategory());
+
+            questionDao.save(existingQuestionToUpdate);
+            return "the question has been successfully updated !";
+        } else {
+
+            throw new RuntimeException("the question does not exist !");
+        }
+
 
     }
 }
