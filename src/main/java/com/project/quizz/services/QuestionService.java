@@ -32,11 +32,11 @@ QuestionDao questionDao;
         return "The question has been posted successfully !";
     }
 
-/*    public String deleteCategory(Integer categoryId) {
+    public String deleteCategory(Integer categoryId) {
 
-        questionDao.findById(categoryId).ifPresent(questionDao.delete());
+        questionDao.deleteById(categoryId);
         return "The question has been successfully deleted !";
 
 
-    }*/
+    }
 }
