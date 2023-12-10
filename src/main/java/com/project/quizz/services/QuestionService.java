@@ -5,9 +5,9 @@ import com.project.quizz.dao.QuestionDao;
 import com.project.quizz.entities.Question;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class QuestionService {
@@ -37,6 +37,12 @@ QuestionDao questionDao;
         questionDao.deleteById(categoryId);
         return "The question has been successfully deleted !";
 
+
+    }
+
+    public Optional<Question> findQuestionById(Integer questionId) {
+
+        return questionDao.findById(questionId);
 
     }
 }
