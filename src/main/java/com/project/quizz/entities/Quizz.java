@@ -16,6 +16,11 @@ public class Quizz {
     private String title;
 
     @ManyToMany
+    @JoinTable(
+            name="quizz_questions",
+            joinColumns = @JoinColumn(name = "quizz_id"),
+            inverseJoinColumns = @JoinColumn(name = "question_id")
+    )
     private List<Question> questions;
 
 
