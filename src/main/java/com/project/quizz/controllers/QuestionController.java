@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("question") // by default
+@RequestMapping("question")
 public class QuestionController {
 
     @Autowired
