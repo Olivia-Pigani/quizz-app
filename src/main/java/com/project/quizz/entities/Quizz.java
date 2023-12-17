@@ -19,7 +19,7 @@ public class Quizz {
     @JoinTable(
             name="quizz_questions",
             joinColumns = @JoinColumn(name = "quizz_id"),
-            inverseJoinColumns = @JoinColumn(name = "question_id")
+            inverseJoinColumns = @JoinColumn(name = "questions_id")
     )
     private List<Question> questions;
 
